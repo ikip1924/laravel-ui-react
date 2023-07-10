@@ -1,10 +1,13 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import { Card, CardContent, CardHeader, CardTitle } from '@/Components/ui/card';
-import { Head, Link } from '@inertiajs/react';
-import { PropsWithChildren } from 'react';
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
+import { Head, Link } from "@inertiajs/react";
+import { PropsWithChildren } from "react";
 
-export default function GuestLayout({ title, children }: PropsWithChildren<{
-    title: string,
+export default function GuestLayout({
+    title,
+    children,
+}: PropsWithChildren<{
+    title: string;
 }>) {
     return (
         <>
@@ -20,9 +23,7 @@ export default function GuestLayout({ title, children }: PropsWithChildren<{
                     <CardHeader>
                         <CardTitle>{title}</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        {children}
-                    </CardContent>
+                    <CardContent>{children}</CardContent>
                 </Card>
             </div>
         </>

@@ -1,30 +1,36 @@
-import { useEffect, FormEventHandler } from 'react';
-import GuestLayout from '@/Layouts/guest-layout';
-import InputError from '@/Components/InputError';
+import { useEffect, FormEventHandler } from "react";
+import GuestLayout from "@/Layouts/guest-layout";
+import InputError from "@/Components/InputError";
 
-import { Link, useForm } from '@inertiajs/react';
-import { Button } from '@/Components/ui/button';
-import { Checkbox } from '@/Components/ui/checkbox';
-import { Input } from '@/Components/ui/input';
-import { Label } from '@/Components/ui/label';
+import { Link, useForm } from "@inertiajs/react";
+import { Button } from "@/Components/ui/button";
+import { Checkbox } from "@/Components/ui/checkbox";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
 
-export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
+export default function Login({
+    status,
+    canResetPassword,
+}: {
+    status?: string;
+    canResetPassword: boolean;
+}) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
+        email: "",
+        password: "",
         remember: false,
     });
 
     useEffect(() => {
         return () => {
-            reset('password');
+            reset("password");
         };
     }, []);
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('login'));
+        post(route("login"));
     };
 
     return (
@@ -33,9 +39,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
 
             <form onSubmit={submit}>
                 <div>
-                    <Label htmlFor="email" >
-                        Email
-                    </Label>
+                    <Label htmlFor="email">Email</Label>
 
                     <Input
                         id="email"
@@ -45,16 +49,14 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         className="block w-full mt-1"
                         autoComplete="username"
                         autoFocus
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={(e) => setData("email", e.target.value)}
                     />
 
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
-                    <Label htmlFor="password">
-                        Password
-                    </Label>
+                    <Label htmlFor="password">Password</Label>
 
                     <Input
                         id="password"
@@ -63,7 +65,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         value={data.password}
                         className="block w-full mt-1"
                         autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={(e) => setData("password", e.target.value)}
                     />
 
                     <InputError message={errors.password} className="mt-2" />
@@ -74,7 +76,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         <Checkbox
                             name="remember"
                             checked={data.remember}
-                            onCheckedChange={(e:any) => setData('remember', e)}
+                            onCheckedChange={(e: any) => setData("remember", e)}
                         />
                         <span className="ml-2 text-sm text-muted-foreground ">Remember me</span>
                     </label>
@@ -83,7 +85,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                 <div className="flex items-center justify-end mt-4">
                     {canResetPassword && (
                         <Link
-                            href={route('password.request')}
+                            href={route("password.request")}
                             className="text-muted-foreground hovet:text-foreground "
                         >
                             Forgot your password?
@@ -99,4 +101,4 @@ export default function Login({ status, canResetPassword }: { status?: string, c
     );
 }
 
-Login.layout = (page: React.ReactNode) => <GuestLayout title='Login' children={ page } />
+Login.layout = (page: React.ReactNode) => <GuestLayout title="Login" children={page} />;
