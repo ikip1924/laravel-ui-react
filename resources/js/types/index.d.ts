@@ -10,3 +10,8 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
         user: User;
     };
 };
+
+export interface CommandPaletteState {
+    openCommandPalette: boolean;
+    setOpenCommandPalette: (openCommandPalette: boolean) => void;
+}

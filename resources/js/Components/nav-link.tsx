@@ -9,7 +9,7 @@ export default function NavLink({
         <Link
             className={cn(
                 "hover:text-foreground transition duration-200 py-2 px-4",
-                active ? "text-foreground font-semibold" : "text-muted-foreground",
+                active ? "text-warning font-semibold" : "text-muted-foreground",
             )}
             {...props}
         />
