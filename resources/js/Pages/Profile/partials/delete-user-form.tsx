@@ -1,10 +1,10 @@
 import { useRef, useState, FormEventHandler } from "react";
 
 import { useForm } from "@inertiajs/react";
-import { Label } from "@/Components/ui/label";
-import { Input } from "@/Components/ui/input";
-import InputError from "@/Components/InputError";
-import { Button } from "@/Components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import InputError from "@/components/InputError";
+import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -13,9 +13,9 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/Components/ui/dialog"
-import SectionTitle from "@/Components/section.title";
-import { Card, CardContent } from "@/Components/ui/card";
+} from "@/components/ui/dialog"
+import SectionTitle from "@/components/section.title";
+import { Card, CardContent } from "@/components/ui/card";
 
 
 export default function DeleteUserForm() {

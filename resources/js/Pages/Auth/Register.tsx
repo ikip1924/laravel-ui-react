@@ -1,11 +1,11 @@
 import React, { useEffect, FormEventHandler } from "react";
-import GuestLayout from "@/Layouts/guest-layout";
-import InputError from "@/Components/InputError";
+import GuestLayout from "@/layouts/guest-layout";
+import InputError from "@/components/InputError";
 
 import { Link, useForm } from "@inertiajs/react";
-import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
-import { Button } from "@/Components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -99,7 +99,7 @@ export default function Register() {
                 <div className="flex items-center justify-end mt-4">
                     <Link
                         href={route("login")}
-                        className="text-muted-foreground hover:text-primary"
+                        className="text-muted-foreground hover:text-foreground"
                     >
                         Already registered?
                     </Link>

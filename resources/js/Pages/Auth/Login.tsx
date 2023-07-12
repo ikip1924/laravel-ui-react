@@ -1,12 +1,12 @@
 import { useEffect, FormEventHandler } from "react";
-import GuestLayout from "@/Layouts/guest-layout";
-import InputError from "@/Components/InputError";
+import GuestLayout from "@/layouts/guest-layout";
+import InputError from "@/components/InputError";
 
 import { Link, useForm } from "@inertiajs/react";
-import { Button } from "@/Components/ui/button";
-import { Checkbox } from "@/Components/ui/checkbox";
-import { Input } from "@/Components/ui/input";
-import { Label } from "@/Components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function Login({
     status,
@@ -86,7 +86,7 @@ export default function Login({
                     {canResetPassword && (
                         <Link
                             href={route("password.request")}
-                            className="text-muted-foreground hovet:text-foreground "
+                            className="text-muted-foreground hover:text-foreground"
                         >
                             Forgot your password?
                         </Link>

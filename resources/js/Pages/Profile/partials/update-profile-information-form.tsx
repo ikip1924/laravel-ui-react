@@ -2,11 +2,11 @@ import { Link, useForm, usePage } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
 import { FormEventHandler } from "react";
 import { PageProps } from "@/types";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/Components/ui/card";
-import { Label } from "@/Components/ui/label";
-import { Input } from "@/Components/ui/input";
-import { Button } from "@/Components/ui/button";
-import InputError from "@/Components/InputError";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import InputError from "@/components/InputError";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -40,9 +40,12 @@ export default function UpdateProfileInformation({
 
             <CardContent>
                 <form onSubmit={submit} className="space-y-6 ">
+                    <div className="grid w-full max-w-[18rem] items-center gap-1.5">
+                        <Label htmlFor="picture">Picture</Label>
+                        <Input id="picture" type="file" />
+                    </div>
                     <div>
                         <Label htmlFor="name">Name</Label>
-
                         <Input
                             id="name"
                             className="block w-full mt-1"

@@ -3,18 +3,18 @@ import AppLayout from "@/layouts/app-layout";
 import { Head } from "@inertiajs/react";
 import React from "react";
 
-export default function Dashboard() {
+export default function Home() {
     return (
         <>
             <Head title="Welcome to my life" />
 
-            <Container>
+            <Container >
                 <div className="py-12">
-                    You are Log in
+                    Home
                 </div>
             </Container>
         </>
     )
 }
 
-Dashboard.layout = (page: React.ReactNode) => <AppLayout children={page} />;
+Home.layout = (page: React.ReactNode) => <AppLayout children={page} />;

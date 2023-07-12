@@ -1,5 +1,5 @@
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import NavLink from "@/Components/nav-link";
+import ApplicationLogo from "@/components/application-logo";
+import NavLink from "@/components/nav-link";
 import { PageProps } from "@/types";
 import { router, usePage } from "@inertiajs/react";
 import React from "react";
@@ -10,16 +10,17 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/Components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { IconChevronDown } from "@tabler/icons-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;
     return (
-        <nav className="px-4 py-2 sm:px-6">
+        <nav className="px-4 py-2 sm:py-3 sm:px-6 border-b border-border/60">
             <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                    <ApplicationLogo className="w-auto h-8 mr-4 sm:h-10 fill-primary" />
+                    <ApplicationLogo className="w-auto h-8 mr-4 fill-foreground" />
                     <NavLink href={route("home")} active={route().current("home")}>
                         Home
                     </NavLink>
@@ -27,7 +28,9 @@ export default function Navbar() {
                         Dashboard
                     </NavLink>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-x-4">
+                    <ThemeToggle />
+
                     {auth.user ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger className="flex items-center justify-between focus:outline-none gap-x-4">
