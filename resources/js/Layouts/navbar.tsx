@@ -1,7 +1,7 @@
 import ApplicationLogo from "@/components/application-logo";
 import NavLink from "@/components/nav-link";
 import { CommandPaletteState, PageProps } from "@/types";
-import { router, usePage } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 import React from "react";
 import {
     DropdownMenu,
@@ -14,6 +14,7 @@ import {
 import { IconChevronDown, IconCommand, IconSearch } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CommandPalette } from '@/layouts/command-palette';
+import { Button } from "@/components/ui/button";
 
 
 
@@ -67,9 +68,14 @@ export default function Navbar({
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         ) : (
-                            <>
-                                <NavLink href={route("login")}>Login</NavLink>
-                            </>
+                            <div className="flex gap-x-2">
+                                <Button className="rounded-full" size='sm' variant='secondary' asChild>
+                                    <Link href={route("login")}>Login</Link>
+                                </Button>
+                                <Button className="rounded-full" size='sm' asChild>
+                                    <Link href={route("register")}>Register</Link>
+                                </Button>
+                            </div>
                         )}
                     </div>
                 </div>
