@@ -26,7 +26,7 @@ export default function Navbar({
     return (
         <>
             <CommandPalette openCommandPalette={openCommandPalette} setOpenCommandPalette={setOpenCommandPalette} />
-            <nav className="px-4 py-2 sm:py-3 sm:px-6 border-b border-border/60">
+            <nav className="hidden lg:block px-4 py-2 sm:py-3 sm:px-6 border-b border-border/60">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
                         <ApplicationLogo className="w-auto h-8 mr-4 fill-foreground" />
@@ -53,8 +53,19 @@ export default function Navbar({
                                     {auth.user.name}
                                     <IconChevronDown className="w-4 h-4" />
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="mr-6 w-72">
-                                    <DropdownMenuLabel>Manage Account</DropdownMenuLabel>
+                                <DropdownMenuContent align="end" className="mt-2 w-72">
+                                    <DropdownMenuLabel>
+                                        <div className="flex items-center font-normal">
+                                            <div className="shrink-0 mr-3">
+                                                <img className="rounded-full w-8 h-8" src={auth.user.avatar} />
+                                            </div>
+                                            <div>
+                                                <div>{auth.user.name}</div>
+                                                <div className="text-muted-foreground">{auth.user.email}</div>
+                                            </div>
+                                        </div>
+                                    </DropdownMenuLabel>
+                                    <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.get("dashboard")}>
                                         Dashboard
                                     </DropdownMenuItem>

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect } from 'react';
 import {
     CommandDialog,
     CommandEmpty,
@@ -7,38 +7,41 @@ import {
     CommandItem,
     CommandList,
     CommandSeparator,
-    CommandShortcut,
-} from "@/components/ui/command"
-import { router, usePage } from "@inertiajs/react"
-import { Icon } from "@/components/icon"
-import { PageProps } from "@/types"
+} from '@/components/ui/command';
+import { router, usePage } from '@inertiajs/react';
+import { PageProps } from '@/types';
+import { Icon } from '@/components/icon';
 
 interface Props {
-    openCommandPalette: boolean
-    setOpenCommandPalette: (openCommandPalette: boolean) => void
+    openCommandPalette: boolean;
+    setOpenCommandPalette: (openCommandPalette: boolean) => void;
 }
-export function CommandPalette({
-    openCommandPalette, setOpenCommandPalette
-}: Props) {
+
+export function CommandPalette({ openCommandPalette, setOpenCommandPalette }: Props) {
     const { auth } = usePage<PageProps>().props;
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
-            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
                 // @ts-ignore
-                setOpenCommandPalette((open) => !open)
+                setOpenCommandPalette((open) => !open);
             }
-        }
-        document.addEventListener("keydown", down)
-        return () => document.removeEventListener("keydown", down)
-    }, [])
+        };
+        document.addEventListener('keydown', down);
+        return () => document.removeEventListener('keydown', down);
+    }, []);
 
     function goto(href: string) {
-        router.get(href, {}, {
-            preserveState: true,
-            preserveScroll: true,
-            onSuccess: () => setOpenCommandPalette(false)
-        })
+        router.get(
+            href,
+            {},
+            {
+                preserveState: true,
+                preserveScroll: true,
+                onSuccess: () => setOpenCommandPalette(false),
+            },
+        );
     }
+
     return (
         <CommandDialog open={openCommandPalette} onOpenChange={setOpenCommandPalette}>
             <CommandInput placeholder="Type a command or search..." />
@@ -99,5 +102,5 @@ export function CommandPalette({
                 </CommandGroup>
             </CommandList>
         </CommandDialog>
-    )
+    );
 }

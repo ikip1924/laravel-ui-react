@@ -15,16 +15,18 @@ export default function Edit({
         <>
             <Head title="Profile" />
 
-            <Container>
-                <div className="max-w-2xl space-y-6 sm:px-6 lg:px-8">
-                    <UpdateProfileInformationForm
-                        mustVerifyEmail={mustVerifyEmail}
-                        status={status}
-                    />
-                    <UpdatePasswordForm />
-                    <DeleteUserForm />
-                </div>
-            </Container>
+            <div className="py-6 lg:py-12">
+                <Container>
+                    <div className="max-w-2xl space-y-6 sm:px-6 lg:px-8">
+                        <UpdateProfileInformationForm
+                            mustVerifyEmail={mustVerifyEmail}
+                            status={status}
+                        />
+                        <UpdatePasswordForm />
+                        <DeleteUserForm />
+                    </div>
+                </Container>
+            </div>
         </>
     );
 }
