@@ -29,7 +29,10 @@ export default function Navbar({
             <nav className="hidden lg:block px-4 py-2 sm:py-3 sm:px-6 border-b border-border/60">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                        <ApplicationLogo className="w-auto h-8 mr-4 fill-foreground" />
+                        <Link href="/">
+                            <ApplicationLogo className="w-auto h-8 mr-4 fill-foreground" />
+                        </Link>
+
                         <NavLink href={route("home")} active={route().current("home")}>
                             Home
                         </NavLink>
@@ -38,7 +41,7 @@ export default function Navbar({
                         </NavLink>
                     </div>
                     <div className="flex items-center gap-x-4">
-                        <button onClick={() => setOpenCommandPalette(true)} className=" ring-1 fing-ring px-4 py-2 rounded-lg focus:outline-none flex items-center gap-x-4 text-muted-foreground hover:text-foreground">
+                        <button onClick={() => setOpenCommandPalette(true)} className=" ring-1 fing-border px-4 py-2 rounded-lg focus:outline-none flex items-center gap-x-4 text-muted-foreground hover:text-foreground">
                             <IconSearch className="h-4 w-4" />
                             <span> Quick search ... </span>
                             <span className="flex items-center">

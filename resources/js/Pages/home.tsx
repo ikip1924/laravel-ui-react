@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import AppLayout from "@/layouts/app-layout";
+import UserLayout from "@/layouts/user-layout";
 import { Head } from "@inertiajs/react";
 import React from "react";
 
@@ -17,4 +17,4 @@ export default function Home() {
     )
 }
 
-Home.layout = (page: React.ReactNode) => <AppLayout children={page} />;
+Home.layout = (page: React.ReactNode) => <UserLayout children={page} />;

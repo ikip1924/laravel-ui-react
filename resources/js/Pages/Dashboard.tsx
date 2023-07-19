@@ -1,5 +1,7 @@
 import Container from "@/components/container";
-import AppLayout from "@/layouts/app-layout";
+import SectionTitle from "@/components/section.title";
+import { Card } from "@/components/ui/card";
+import UserLayout from "@/layouts/user-layout";
 import { Head } from "@inertiajs/react";
 import React from "react";
 
@@ -8,13 +10,11 @@ export default function Dashboard() {
         <>
             <Head title="Welcome to my life" />
 
-            <Container>
-                <div className="py-12">
-                    You are Log in
-                </div>
-            </Container>
+            <Card>
+                <SectionTitle title="Dashboard" description="Welcome to Dashboard" />
+            </Card >
         </>
     )
 }
 
-Dashboard.layout = (page: React.ReactNode) => <AppLayout children={page} />;
+Dashboard.layout = (page: React.ReactNode) => <UserLayout children={page} />;
