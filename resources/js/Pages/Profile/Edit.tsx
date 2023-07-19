@@ -5,6 +5,7 @@ import { Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import AppLayout from "@/layouts/app-layout";
 import Container from "@/components/container";
+import UserLayout from "@/layouts/user-layout";
 
 export default function Edit({
     auth,
@@ -15,20 +16,16 @@ export default function Edit({
         <>
             <Head title="Profile" />
 
-            <div className="py-6 lg:py-12">
-                <Container>
-                    <div className="max-w-2xl space-y-6 sm:px-6 lg:px-8">
-                        <UpdateProfileInformationForm
-                            mustVerifyEmail={mustVerifyEmail}
-                            status={status}
-                        />
-                        <UpdatePasswordForm />
-                        <DeleteUserForm />
-                    </div>
-                </Container>
+            <div className="max-w-2xl space-y-6 sm:px-6 lg:px-8">
+                <UpdateProfileInformationForm
+                    mustVerifyEmail={mustVerifyEmail}
+                    status={status}
+                />
+                <UpdatePasswordForm />
+                <DeleteUserForm />
             </div>
         </>
     );
 }
 
-Edit.layout = (page: React.ReactNode) => <AppLayout children={page} />;
+Edit.layout = (page: React.ReactNode) => <UserLayout children={page} />;
