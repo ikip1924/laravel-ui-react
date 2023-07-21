@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import SectionTitle from "@/components/section.title";
 import { Card } from "@/components/ui/card";
 import UserLayout from "@/layouts/user-layout";

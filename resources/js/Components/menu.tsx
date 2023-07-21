@@ -18,6 +18,9 @@ export default function Menu() {
             <VerticalNavLink href={'#'} icon='IconArticle' >
                 Articles
             </VerticalNavLink>
+            <VerticalNavLink active={route().current('users.index')} href={route('users.index')} icon='IconUsers' >
+                Users
+            </VerticalNavLink>
             <VerticalNavLink href={'#'} icon='IconMessage' >
                 Comments
             </VerticalNavLink>
