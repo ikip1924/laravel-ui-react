@@ -15,6 +15,8 @@ import { IconChevronDown, IconCommand, IconSearch } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CommandPalette } from '@/layouts/command-palette';
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 
 
 
@@ -60,7 +62,10 @@ export default function Navbar({
                                     <DropdownMenuLabel>
                                         <div className="flex items-center font-normal">
                                             <div className="shrink-0 mr-3">
-                                                <img className="rounded-full w-8 h-8" src={auth.user.avatar} />
+                                                <Avatar>
+                                                    <AvatarImage src={auth.user.avatar} />
+                                                    <AvatarFallback>{auth.user.acronym}</AvatarFallback>
+                                                </Avatar>
                                             </div>
                                             <div>
                                                 <div>{auth.user.name}</div>

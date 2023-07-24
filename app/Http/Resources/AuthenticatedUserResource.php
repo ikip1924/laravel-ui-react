@@ -14,11 +14,12 @@ class AuthenticatedUserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-       return [
-         'id' => $this->id,
-         'name' => $this->name,
-         'email' => $this->email,
-         'avatar' => $this->avatar(),
-       ];
+        return [
+            'id' => $this->id,
+            'acronym' => acronym($this->name),
+            'name' => $this->name,
+            'email' => $this->email,
+            'avatar' => $this->avatar(),
+        ];
     }
 }

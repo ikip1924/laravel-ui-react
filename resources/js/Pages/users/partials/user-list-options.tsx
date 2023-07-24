@@ -1,7 +1,7 @@
 import React from 'react'
 import { User } from '@/types'
 import { Button } from '@/components/ui/button'
-import { Link } from '@inertiajs/react'
+import { Link, useForm } from '@inertiajs/react'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -17,10 +17,16 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Icon } from '@/components/icon'
 
-import { IconUserPlus } from '@tabler/icons-react'
+import DropdownDialog from '@/components/dropdown-dialog'
 
 
 export default function UserListOptions({ user }: { user: User }) {
+    const { delete: destroy } = useForm()
+    function destroyUser(user: User) {
+        destroy(route('users.destroy', [user]), {
+            preserveScroll: true,
+        })
+    }
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -31,9 +37,11 @@ export default function UserListOptions({ user }: { user: User }) {
             <DropdownMenuContent align='end' className='w-56'>
                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                    <Icon className='mr-2' name='IconId' />
-                    Details
+                <DropdownMenuItem asChild>
+                    <Link href={route('users.show', [user])} >
+                        <Icon className='mr-2' name='IconId' />
+                        Details
+                    </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                     <Icon className='mr-2' name='IconPencil' />
@@ -84,16 +92,23 @@ export default function UserListOptions({ user }: { user: User }) {
                         </DropdownMenuSubContent>
                     </DropdownMenuPortal>
                 </DropdownMenuSub>
+                <DropdownDialog
+                    trigger_text='Ban'
+                    title='Are You Sure About It ?'
+                    description='Are You Sure To Want Ban This User'
+                    cancel_text='Batal'
+                    submit_text='Ban'
+                    action={() => console.log('Ban')}
+                    icon='IconBan'
+                />
+                <DropdownDialog
+                    trigger_text='Delete Permanent'
+                    title='Are You Sure About It ?'
+                    description='Are You Sure Want To Delete This User'
+                    action={() => destroyUser(user)}
+                    icon='IconTrash'
+                />
 
-
-                <DropdownMenuItem>
-                    <Icon className='mr-2' name='IconBan' />
-                    Ban
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                    <Icon className='mr-2' name='IconTrash' />
-                    Delete Permanent
-                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
 

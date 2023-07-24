@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/table"
 import { SimplePagination } from "@/components/pagination";
 import UserListOptions from "./partials/user-list-options";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 
 
 export default function Index() {
@@ -39,7 +41,20 @@ export default function Index() {
                                     {users.map((user: any, i: number) => (
                                         <TableRow>
                                             <TableCell className="w-0">{meta.from + i}</TableCell>
-                                            <TableCell>{user.name}</TableCell>
+                                            <TableCell>
+                                                <div className="flex items-center font-normal">
+                                                    <div className="shrink-0 mr-3">
+                                                        <Avatar>
+                                                            <AvatarImage src={user.avatar} />
+                                                            <AvatarFallback>{user.acronym}</AvatarFallback>
+                                                        </Avatar>
+                                                    </div>
+                                                    <div>
+                                                        <div>{user.name}</div>
+                                                        <div className="text-muted-foreground">{user.email}</div>
+                                                    </div>
+                                                </div>
+                                            </TableCell>
                                             <TableCell>{user.email_verified_at}</TableCell>
                                             <TableCell>{user.created_at}</TableCell>
                                             <TableCell>

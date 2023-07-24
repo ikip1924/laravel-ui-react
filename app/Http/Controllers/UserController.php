@@ -14,15 +14,16 @@ class UserController extends Controller
     public function index()
     {
         $users = User::query()
-        ->select('id', 'name', 'email','email_verified_at', 'created_at')
-        ->latest()
-        ->paginate(10);
+            ->select('id', 'name', 'email', 'email_verified_at', 'created_at')
+            ->latest()
+            ->paginate(10);
+
         return inertia('users/index', [
             'users' => UserResource::collection($users)->additional([
                 'meta' => [
-                    'has_pages' => $users->hasPages()
-                ]
-            ])
+                    'has_pages' => $users->hasPages(),
+                ],
+            ]),
         ]);
     }
 
@@ -71,6 +72,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return back();
     }
 }
