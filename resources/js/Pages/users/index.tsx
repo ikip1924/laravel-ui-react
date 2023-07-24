@@ -12,6 +12,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { SimplePagination } from "@/components/pagination";
+import UserListOptions from "./partials/user-list-options";
 
 
 export default function Index() {
@@ -41,7 +42,11 @@ export default function Index() {
                                             <TableCell>{user.name}</TableCell>
                                             <TableCell>{user.email_verified_at}</TableCell>
                                             <TableCell>{user.created_at}</TableCell>
-                                            <TableCell>Option</TableCell>
+                                            <TableCell>
+                                                <div className="flex justify-end">
+                                                    <UserListOptions user={user} />
+                                                </div>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </>
